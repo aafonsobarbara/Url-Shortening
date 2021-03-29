@@ -1,0 +1,454 @@
+$red: hsl(0, 87%, 67%);
+$gray: hsl(0, 0%, 75%);
+$grayish: hsl(257, 7%, 63%);
+$dark-gray: hsl(255, 11%, 22%);
+$cyan: hsl(180, 66%, 49%);
+$violet: hsl(257, 27%, 26%);
+$center: 40px 100px;
+
+body {
+  font-family: "Poppins";
+}
+@mixin btn {
+  background: $cyan;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  margin: 30px 0;
+  padding: 15px 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    background-color: lighten($cyan, 15%);
+    transition: 0.5s;
+  }
+}
+@mixin h2 {
+  color: $dark-gray;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin font-p {
+  font-size: 15px;
+  color: $grayish;
+  line-height: 1.5;
+}
+button {
+  @include btn();
+}
+
+header {
+  @include flex();
+
+  padding: $center;
+  font-weight: bold;
+  font-size: 15px;
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .nav {
+      @include flex();
+      justify-content: space-between;
+      width: 100%;
+      ul {
+        display: flex;
+        padding: 0 10px;
+        li a {
+          padding: 10px;
+          color: $grayish;
+          transition: 0.5s;
+          &:hover {
+            color: $dark-gray;
+            transition: 0.5s;
+          }
+        }
+      }
+
+      .login {
+        a {
+          padding: 10px;
+          color: $grayish;
+          transition: 0.5s;
+          &:hover {
+            color: $dark-gray;
+            transition: 0.5s;
+          }
+        }
+        button {
+          margin: 0 10px;
+          padding: 10px 20px;
+          font-size: 15px;
+        }
+      }
+    }
+    .menu-hamburguer {
+      display: none;
+    }
+  }
+}
+main {
+  @include flex();
+  flex-wrap: nowrap;
+  padding: 40px 100px 200px 100px;
+  img {
+    max-width: 70%;
+    width: 70%;
+  }
+  .main-content {
+    width: 600px;
+    min-width: 400px;
+    h1 {
+      font-size: 70px;
+      font-weight: bold;
+      color: $dark-gray;
+    }
+    p {
+      max-width: 500px;
+      font-size: 18px;
+      @include font-p();
+    }
+  }
+}
+
+.shorten-url {
+  background-color: lighten($gray, 15%);
+  position: relative;
+  padding: 20px 0;
+  .shorten-content {
+    position: relative;
+    top: -90px;
+  }
+  .shorten {
+    background-image: url("/images/bg-shorten-desktop.svg");
+    background-color: $violet;
+    margin: 0px 100px;
+    @include flex();
+    justify-content: center;
+    align-items: baseline;
+    padding: 10px 40px;
+    border-radius: 10px;
+    .input {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      input {
+        padding: 20px;
+        border-radius: 10px;
+        border: none;
+        margin-right: 20px;
+        color: $dark-gray;
+        font-size: 15px;
+        &::placeholder {
+          font-weight: bold;
+          color: $grayish;
+        }
+      }
+      span {
+        color: $red;
+        padding: 5px;
+        visibility: hidden;
+      }
+    }
+    button {
+      border-radius: 10px;
+      padding: 20px 40px;
+    }
+  }
+  .hide {
+    display: none;
+  }
+  .urls {
+    @include flex();
+    margin: 20px 100px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    p {
+      color: $dark-gray;
+    }
+    a {
+      padding: 0 20px;
+      color: $cyan;
+    }
+    button {
+      margin: 0;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    .btn-url-click {
+      background-color: $violet;
+    }
+  }
+}
+
+.stats {
+  background-color: lighten($gray, 15%);
+  padding: $center;
+  padding: 100px 0;
+  text-align: center;
+  @include flex();
+  flex-direction: column;
+
+  h2 {
+    @include h2();
+  }
+  span {
+    display: block;
+    max-width: 500px;
+    @include font-p();
+  }
+  span::after {
+    content: "";
+    width: 500px;
+    height: 10px;
+    background-color: $cyan;
+    position: relative;
+    top: 200px;
+    display: block;
+  }
+  .blocks {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    .block {
+      background-color: white;
+      border-radius: 5px;
+      text-align: left;
+      padding: 20px 20px 20px 20px;
+      width: 250px;
+      position: relative;
+      margin: 0 10px;
+      img {
+        background-color: $violet;
+        box-sizing: content-box;
+        width: 40px;
+        height: 40px;
+        border: 10px solid $violet;
+        border-radius: 50%;
+        position: absolute;
+        top: -30px;
+      }
+      h3 {
+        color: $dark-gray;
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 40px;
+      }
+      p {
+        @include font-p();
+        font-size: 14px;
+        padding-top: 20px;
+      }
+    }
+    .block:nth-child(2) {
+      position: relative;
+      top: 30px;
+    }
+    .block:nth-child(3) {
+      position: relative;
+      top: 60px;
+    }
+  }
+}
+
+.boost {
+  @include flex();
+  flex-direction: column;
+  padding: 40px 0;
+  background-color: $violet;
+  background-image: url("/images/bg-boost-desktop.svg");
+  h2 {
+    @include h2();
+    color: white;
+  }
+}
+
+footer {
+  background-color: $dark-gray;
+  @include flex();
+  padding: $center;
+  .links {
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+    ul li {
+      padding: 5px;
+      color: white;
+      font-weight: bold;
+      a {
+        color: $grayish;
+        font-weight: normal;
+        font-size: 14px;
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+    .redes {
+      display: flex;
+      li {
+        a {
+          color: white;
+          font-size: 20px;
+          padding: 0 5px;
+          &:hover {
+            color: $cyan;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  $center: 40px 20px;
+  header {
+    padding: $center;
+    .menu {
+      flex-wrap: wrap;
+      .menu-hamburguer {
+        display: block;
+      }
+      .nav {
+        display: none;
+      }
+      .nav-mobile {
+        display: block;
+        flex-direction: column;
+        background-color: $violet;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        ul {
+          flex-direction: column;
+          margin: 20px;
+          border-bottom: 1px solid $gray;
+          text-align: center;
+          font-size: 20px;
+
+          li {
+            padding: 15px 0;
+            a {
+              color: white;
+            }
+          }
+        }
+        .login {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          padding: 0 20px;
+          box-sizing: border-box;
+          a {
+            color: white;
+            font-size: 20px;
+            padding-bottom: 20px;
+          }
+          button {
+            width: 100%;
+            padding: 15px 40px;
+          }
+        }
+      }
+    }
+  }
+  main {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding: $center;
+    text-align: center;
+    padding-bottom: 200px;
+    .main-content {
+      h1 {
+        font-size: 40px;
+        padding: 20px 0;
+      }
+    }
+  }
+  .shorten-url {
+    .shorten-content {
+      top: -120px;
+      .shorten {
+        background-image: url("/images/bg-shorten-mobile.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 40px;
+        input {
+          width: 500px;
+          margin-right: 0;
+          box-sizing: border-box;
+        }
+        button {
+          margin: 10px 0;
+          display: block;
+          width: 500px;
+        }
+      }
+    }
+  }
+  .boost {
+    h2 {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  $center: 40px 20px;
+  .stats {
+    padding: $center;
+    position: relative;
+    padding-bottom: 100px;
+    h2 {
+      font-size: 30px;
+    }
+    span {
+      &::after {
+        width: 10px;
+        height: 500px;
+        position: absolute;
+        top: 300px;
+        left: 50%;
+      }
+    }
+    .blocks {
+      .block {
+        text-align: center;
+        margin-bottom: 40px;
+        img {
+          left: 40%;
+        }
+      }
+    }
+  }
+  footer {
+    flex-direction: column;
+    text-align: center;
+    .links {
+      flex-direction: column;
+      padding: 20px 0;
+      ul {
+        padding: 20px 0;
+      }
+    }
+    .redes {
+      justify-content: center;
+      padding: 20px 0;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+main {
+  @include flex();
+  flex-wrap: nowrap;
+  padding: $center;
+  padding-bottom: 150px;
+  img {
+    width: 500px;
+  }
+  .main-content {
+    max-width: 600px;
+    h1 {
+      font-size: 70px;
+      font-weight: bold;
+      color: $dark-gray;
+    }
+    p {
+      max-width: 500px;
+      font-size: 18px;
+      @include font-p();
+    }
+  }
+}
+
+main {
+  $center: 40px 20px;
+  @include desktop {
+    padding: $center;
+    padding-bottom: 150px;
+    img {
+      width: 400px;
+    }
+    .main-content {
+      h1 {
+        font-size: 50px;
+      }
+    }
+  }
+  @include tablet {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    img {
+      width: 300px;
+    }
+    .main-content {
+      min-width: 200px;
+      padding: 20px 0;
+      text-align: center;
+      h1 {
+        font-size: 30px;
+      }
+    }
+  }
+}
